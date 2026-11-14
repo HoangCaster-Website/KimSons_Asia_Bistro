@@ -245,6 +245,21 @@ button, input, select, textarea {
   user-select: none;
 }
 
+.hero-dragon-art {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--header-h) + 8px);
+  right: max(-84px, calc((100vw - 1500px) / 2));
+  width: clamp(300px, 32vw, 470px);
+  height: auto;
+  opacity: 0.105;
+  filter: saturate(0.82) drop-shadow(0 18px 28px rgba(89, 13, 25, 0.12));
+  transform: rotate(7deg);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -1228,15 +1243,18 @@ button, input, select, textarea {
   -webkit-text-stroke: 1px rgba(140, 24, 40, 0.12);
 }
 
-.reservation-dragon-watermark {
+.reservation-dragon-art {
   position: absolute;
-  left: -80px;
-  bottom: -100px;
-  width: 420px;
-  height: 420px;
-  color: var(--wine);
-  opacity: 0.035;
+  z-index: 0;
+  top: 50%;
+  left: max(-150px, calc((100vw - 1500px) / 2 - 90px));
+  width: clamp(360px, 34vw, 500px);
+  height: auto;
+  opacity: 0.09;
+  filter: saturate(0.78);
+  transform: translateY(-50%) rotate(-7deg);
   pointer-events: none;
+  user-select: none;
 }
 
 .reservation-grid {
@@ -1927,6 +1945,20 @@ button, input, select, textarea {
   .reservation-copy {
     max-width: 650px;
   }
+  .hero-dragon-art {
+    top: calc(var(--header-h) + 70px);
+    right: -105px;
+    width: 360px;
+    opacity: 0.08;
+  }
+  .reservation-dragon-art {
+    top: 26%;
+    right: -120px;
+    left: auto;
+    width: 360px;
+    opacity: 0.075;
+    transform: rotate(8deg);
+  }
   .visit-map-frame {
     min-height: 320px;
   }
@@ -1963,6 +1995,12 @@ button, input, select, textarea {
   }
   .hero {
     padding: calc(var(--header-h) + 18px) 0 42px;
+  }
+  .hero-dragon-art {
+    top: calc(var(--header-h) + 36px);
+    right: -120px;
+    width: 300px;
+    opacity: 0.075;
   }
   .hero-content {
     gap: 26px;
@@ -2166,6 +2204,13 @@ button, input, select, textarea {
   }
   .reservation-grid {
     gap: 28px;
+  }
+  .reservation-dragon-art {
+    top: 150px;
+    right: -108px;
+    width: 280px;
+    opacity: 0.085;
+    transform: rotate(10deg);
   }
   .reservation-card {
     border-radius: 20px;

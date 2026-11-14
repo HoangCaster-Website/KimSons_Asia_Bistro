@@ -1,5 +1,5 @@
 {
-  "contract": "See design-contract.md. User selected a warm, approachable Asian neighborhood bistro: rice-paper ivory, clay-brown accents, natural rectangular food images, moderate headings and gentle corners. Primary task remains browsing dishes and preparing a WhatsApp pickup order. Menu refinement: desktop category sidebar, native mobile selector, global search with exact dish-code match, selected-only filter and inline quantity controls synchronized with the cart.",
+  "contract": "See design-contract.md. Warm, approachable Asian neighborhood bistro with rice-paper ivory, burgundy and antique gold. The photographed menu cover informed a restrained custom dragon motif used as a decorative watermark in the hero and reservation section. Primary tasks remain browsing dishes, placing a pickup order and preparing a reservation request.",
   "targetViewports": [
     "390x844",
     "1440x900"
@@ -10,7 +10,7 @@
   },
   "responsive": {
     "status": "pass",
-    "evidence": "Desktop 1440x900 and mobile 390x844 visually reviewed. Native category selector replaces sidebar at 760px. Toolbar is 134px on mobile. Extra 320px check found no page or menu/variant overflow. Controls reserve stable space while quantities change."
+    "evidence": "Desktop 1440x900 and mobile 390x844 visually reviewed. The transparent dragon scales and crops without horizontal overflow, stays behind content and does not cover form controls. Existing menu controls retain stable dimensions."
   },
   "contentStates": {
     "loading": {
@@ -48,7 +48,17 @@
     {
       "viewport": "390x844",
       "artifact": "hero-390x844.png",
-      "observation": "Warm ivory hero with moderate headline, clay-colored menu CTA, natural food photograph and a subtle paper-colored offset frame."
+      "observation": "Warm ivory hero with the custom burgundy-and-gold dragon visible as a light menu-inspired watermark behind the copy, without reducing text readability."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "reservation-1440x900.png",
+      "observation": "Reservation section carries the custom dragon behind the editorial copy while the dark form card remains visually clean and fully readable."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "reservation-390x844.png",
+      "observation": "Mobile reservation artwork is cropped intentionally along the right edge, remains low contrast and does not create horizontal overflow."
     },
     {
       "viewport": "1440x900",

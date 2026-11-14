@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const port = process.argv[2] || "9333";
-const baseUrl = "http://localhost:8000/index.html#startseite";
+const baseUrl = "http://localhost:4173/index.html#startseite";
 const outputDir = path.dirname(fileURLToPath(import.meta.url));
 const pending = new Map();
 const eventWaiters = new Map();
@@ -73,7 +73,7 @@ const capture = async ({ width, height, deviceScaleFactor, mobile, menuFilename,
   await Promise.race([loaded, delay(5000)]);
   await delay(2600);
   await saveScreenshot(`hero-${width}x${height}.png`);
-  for (const [id, prefix] of [["spezialitaeten", "dishes"], ["ueber-uns", "about"], ["kontakt", "visit"]]) {
+  for (const [id, prefix] of [["spezialitaeten", "dishes"], ["ueber-uns", "about"], ["reservierung", "reservation"], ["kontakt", "visit"]]) {
     await send("Runtime.evaluate", { expression: `document.getElementById('${id}').scrollIntoView({behavior:'instant'});` });
     await delay(id === "kontakt" ? 1800 : 700);
     await saveScreenshot(`${prefix}-${width}x${height}.png`);
