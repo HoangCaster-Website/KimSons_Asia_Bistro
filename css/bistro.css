@@ -1213,6 +1213,277 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
+   Reservation Section — Warm Paper & Lacquer Card
+   -------------------------------------------------------------------------- */
+.reservation {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(200, 150, 62, 0.18), transparent 34%),
+    linear-gradient(145deg, #fbf6ed 0%, #f2e5cf 100%);
+  border-top: 1px solid rgba(200, 150, 62, 0.28);
+}
+
+.reservation .section-index {
+  -webkit-text-stroke: 1px rgba(140, 24, 40, 0.12);
+}
+
+.reservation-dragon-watermark {
+  position: absolute;
+  left: -80px;
+  bottom: -100px;
+  width: 420px;
+  height: 420px;
+  color: var(--wine);
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+.reservation-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  align-items: center;
+  gap: clamp(44px, 7vw, 92px);
+}
+
+.reservation-copy h2 {
+  margin: 0;
+  font: 600 clamp(36px, 3.8vw, 54px)/1.08 var(--display);
+  letter-spacing: -0.02em;
+}
+
+.reservation-copy h2 em {
+  color: var(--wine);
+  font-style: italic;
+}
+
+.reservation-lead {
+  max-width: 47ch;
+  margin: 20px 0 28px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+
+.reservation-details {
+  display: grid;
+  border-top: 1px solid rgba(92, 73, 56, 0.2);
+}
+
+.reservation-details > div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(92, 73, 56, 0.2);
+}
+
+.reservation-details > div > span {
+  color: var(--wine);
+  font: 700 14px/1 var(--display);
+}
+
+.reservation-details p,
+.reservation-details strong,
+.reservation-details small {
+  display: block;
+  margin: 0;
+}
+
+.reservation-details strong {
+  color: var(--ink);
+  font: 600 17px/1.3 var(--display);
+}
+
+.reservation-details small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.reservation-phone {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.reservation-phone a {
+  color: var(--wine);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.reservation-card {
+  overflow: hidden;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 100% 0, rgba(200, 150, 62, 0.18), transparent 32%),
+    linear-gradient(145deg, #271816, #160f0e);
+  border: 1px solid rgba(200, 150, 62, 0.52);
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(54, 26, 18, 0.24);
+}
+
+.reservation-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 26px;
+  background: rgba(255, 248, 235, 0.045);
+  border-bottom: 1px solid rgba(200, 150, 62, 0.3);
+}
+
+.reservation-card-head span {
+  color: var(--gold-pale);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reservation-card-head p {
+  margin: 0;
+  color: rgba(251, 246, 237, 0.62);
+  font-size: 10.5px;
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 26px;
+}
+
+.reservation-field {
+  min-width: 0;
+}
+
+.reservation-field--wide,
+.reservation-submit,
+.reservation-privacy,
+.reservation-status {
+  grid-column: 1 / -1;
+}
+
+.reservation-field label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+  color: #fff9ef;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.reservation-field label > span {
+  color: var(--gold-bright);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.reservation-field input,
+.reservation-field select,
+.reservation-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: #fff9ef;
+  background: rgba(255, 250, 240, 0.07);
+  border: 1px solid rgba(236, 213, 172, 0.28);
+  border-radius: 12px;
+  outline: none;
+  font-size: 13px;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-field select {
+  color-scheme: dark;
+}
+
+.reservation-field textarea {
+  min-height: 86px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.reservation-field input::placeholder,
+.reservation-field textarea::placeholder {
+  color: rgba(251, 246, 237, 0.42);
+}
+
+.reservation-field input:focus,
+.reservation-field select:focus,
+.reservation-field textarea:focus {
+  background: rgba(255, 250, 240, 0.11);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(200, 150, 62, 0.13);
+}
+
+.reservation-field-hint {
+  display: block;
+  margin-top: 6px;
+  color: rgba(245, 223, 168, 0.65);
+  font-size: 9.5px;
+}
+
+.reservation-submit {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2px;
+  color: #20140d;
+  background: linear-gradient(135deg, var(--gold-pale), var(--gold-bright));
+  border: 0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(200, 150, 62, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(200, 150, 62, 0.3);
+}
+
+.reservation-submit svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reservation-privacy,
+.reservation-status {
+  margin: -3px 0 0;
+  text-align: center;
+  color: rgba(251, 246, 237, 0.54);
+  font-size: 9.5px;
+  line-height: 1.55;
+}
+
+.reservation-status {
+  min-height: 15px;
+  margin-top: -8px;
+  color: var(--gold-pale);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
    Visit & Contact Section — Imperial Burgundy & Frosted Glass
    -------------------------------------------------------------------------- */
 .visit {
@@ -1581,6 +1852,13 @@ button, input, select, textarea {
   .desktop-nav {
     gap: 18px;
   }
+  .desktop-nav a {
+    font-size: 12px;
+  }
+  .reservation-grid {
+    grid-template-columns: minmax(0, 0.72fr) minmax(480px, 1.28fr);
+    gap: 36px;
+  }
   .hero-content {
     grid-template-columns: 1fr 0.95fr;
     gap: 32px;
@@ -1604,6 +1882,12 @@ button, input, select, textarea {
   .specialty-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 821px) {
+  .header-cta {
+    display: none;
   }
 }
 
@@ -1634,6 +1918,14 @@ button, input, select, textarea {
   .visit-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+  .reservation-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 34px;
+  }
+  .reservation-copy {
+    max-width: 650px;
   }
   .visit-map-frame {
     min-height: 320px;
@@ -1790,7 +2082,8 @@ button, input, select, textarea {
   .section-heading h2,
   .about-copy h2,
   .menu-intro h2,
-  .visit-info h2 {
+  .visit-info h2,
+  .reservation-copy h2 {
     font-size: clamp(32px, 8.8vw, 40px);
     line-height: 1.12;
   }
@@ -1870,6 +2163,35 @@ button, input, select, textarea {
   .visit-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+  .reservation-grid {
+    gap: 28px;
+  }
+  .reservation-card {
+    border-radius: 20px;
+  }
+  .reservation-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+  }
+  .reservation-form {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 18px;
+  }
+  .reservation-field--wide,
+  .reservation-submit,
+  .reservation-privacy,
+  .reservation-status {
+    grid-column: auto;
+  }
+  .reservation-details > div {
+    grid-template-columns: 34px 1fr;
+  }
+  .reservation-submit {
+    width: 100%;
   }
   .visit-address {
     width: 100%;

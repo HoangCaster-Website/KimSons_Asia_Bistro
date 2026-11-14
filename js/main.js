@@ -818,12 +818,90 @@
     });
   };
 
+  const initReservation = () => {
+    const form = document.getElementById("reservation-form");
+    const dateInput = document.getElementById("reservation-date");
+    const status = document.getElementById("reservation-status");
+    if (!form || !dateInput) return;
+
+    const toLocalISODate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    };
+    const today = new Date();
+    const latest = new Date(today);
+    latest.setDate(latest.getDate() + 90);
+    dateInput.min = toLocalISODate(today);
+    dateInput.max = toLocalISODate(latest);
+
+    const validateDate = () => {
+      dateInput.setCustomValidity("");
+      if (!dateInput.value) return true;
+      const selected = new Date(`${dateInput.value}T12:00:00`);
+      if (selected.getDay() === 0) {
+        dateInput.setCustomValidity("Sonntag ist Ruhetag. Bitte wählen Sie Montag bis Samstag.");
+        return false;
+      }
+      return true;
+    };
+
+    dateInput.addEventListener("change", () => {
+      if (!validateDate()) dateInput.reportValidity();
+      if (status) status.textContent = "";
+    });
+
+    form.addEventListener("input", () => {
+      if (status) status.textContent = "";
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!validateDate() || !form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const name = String(data.get("name") || "").trim();
+      const phone = String(data.get("phone") || "").trim();
+      const dateValue = String(data.get("date") || "");
+      const time = String(data.get("time") || "");
+      const guests = Number(data.get("guests"));
+      const occasion = String(data.get("occasion") || "").trim();
+      const note = String(data.get("note") || "").trim();
+      const date = new Intl.DateTimeFormat("de-DE", {
+        weekday: "long", day: "2-digit", month: "2-digit", year: "numeric"
+      }).format(new Date(`${dateValue}T12:00:00`));
+      const guestLabel = guests === 1 ? "1 Person" : `${guests} Personen`;
+      const message = [
+        "Hallo Kim Son's Asia Bistro,",
+        "",
+        "ich möchte gerne einen Tisch reservieren:",
+        `• Datum: ${date}`,
+        `• Uhrzeit: ${time} Uhr`,
+        `• Personen: ${guestLabel}`,
+        `• Name: ${name}`,
+        `• Telefon: ${phone}`,
+        occasion ? `• Anlass: ${occasion}` : "",
+        note ? `• Wünsche/Hinweise: ${note}` : "",
+        "",
+        "Bitte bestätigen Sie mir kurz, ob der Tisch verfügbar ist. Vielen Dank!"
+      ].filter(Boolean).join("\n");
+      const whatsappNumber = String(config.restaurant?.whatsapp || "").replace(/\D/g, "");
+      const target = whatsappNumber ? `https://wa.me/${whatsappNumber}` : "https://wa.me/";
+      const url = `${target}?text=${encodeURIComponent(message)}`;
+      const opened = window.open(url, "_blank", "noopener,noreferrer");
+      if (!opened) window.location.href = url;
+      if (status) status.textContent = "Ihre Reservierungsanfrage wurde für WhatsApp vorbereitet.";
+    });
+  };
+
   initMotionSystem();
   applyConfig();
   initMobileMenu();
   initOrdering();
   initMenu();
   initFeaturedOrders();
+  initReservation();
   initCardInteractions();
   initActiveNavigation();
   initRevealMotion();

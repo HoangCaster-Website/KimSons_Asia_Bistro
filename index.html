@@ -27,6 +27,7 @@
     "@type": "Restaurant",
     "name": "Kim Son's Asia Bistro",
     "telephone": "+49 6181 4279277",
+    "acceptsReservations": true,
     "servesCuisine": ["Vietnamesisch", "Thailändisch", "Chinesisch", "Japanisch"],
     "address": {
       "@type": "PostalAddress",
@@ -141,9 +142,10 @@
       <a href="#speisekarte">Speisekarte</a>
       <a href="#spezialitaeten">Signature Dishes</a>
       <a href="#ueber-uns">Gastfreundschaft</a>
+      <a href="#reservierung">Tisch reservieren</a>
       <a href="#kontakt">Besuch &amp; Kontakt</a>
     </nav>
-    <a class="header-cta" href="#speisekarte">Speisekarte &amp; Bestellung <span aria-hidden="true">↗</span></a>
+    <a class="header-cta" href="#reservierung">Tisch reservieren <span aria-hidden="true">↗</span></a>
     <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
@@ -154,6 +156,7 @@
       <a href="#speisekarte">Speisekarte</a>
       <a href="#spezialitaeten">Signature Dishes</a>
       <a href="#ueber-uns">Gastfreundschaft</a>
+      <a href="#reservierung">Tisch reservieren</a>
       <a href="#kontakt">Besuch &amp; Kontakt</a>
     </nav>
     <a class="mobile-menu-cta" data-directions-link href="https://www.openstreetmap.org/search?query=N%C3%BCrnberger+Str.+11%2C+63450+Hanau" target="_blank" rel="noopener">Route planen ↗</a>
@@ -447,8 +450,101 @@
       </div>
     </section>
 
-    <section class="visit section-pad" id="kontakt" aria-labelledby="visit-title">
+    <section class="reservation section-pad paper-texture" id="reservierung" aria-labelledby="reservation-title">
       <span class="section-index" aria-hidden="true">04</span>
+      <svg class="reservation-dragon-watermark" aria-hidden="true"><use href="#dragon-pearl-crest"/></svg>
+      <div class="section-shell reservation-grid">
+        <div class="reservation-copy">
+          <p class="eyebrow dark"><span class="eyebrow-gem" aria-hidden="true">✦</span> Ihr Platz bei Kim Son's</p>
+          <h2 id="reservation-title">Gemeinsam genießen.<br><em>Tisch reservieren.</em></h2>
+          <svg class="section-cloud-ornament cloud-dark" aria-hidden="true"><use href="#auspicious-cloud"/></svg>
+          <p class="reservation-lead">Senden Sie uns Ihre Reservierungsanfrage bequem per WhatsApp. Wir prüfen die Verfügbarkeit und bestätigen Ihren Tisch persönlich.</p>
+
+          <div class="reservation-details" aria-label="Hinweise zur Reservierung">
+            <div>
+              <span aria-hidden="true">01</span>
+              <p><strong>Wunschtermin wählen</strong><small>Montag bis Samstag · 11:30–21:00 Uhr</small></p>
+            </div>
+            <div>
+              <span aria-hidden="true">02</span>
+              <p><strong>Anfrage absenden</strong><small>WhatsApp öffnet eine fertig formulierte Nachricht</small></p>
+            </div>
+            <div>
+              <span aria-hidden="true">03</span>
+              <p><strong>Bestätigung erhalten</strong><small>Der Tisch ist nach unserer Rückmeldung reserviert</small></p>
+            </div>
+          </div>
+
+          <p class="reservation-phone">Kurzfristig oder mehr als 12 Personen? <a href="tel:+4961814279277">Rufen Sie uns an: 06181 4279277</a></p>
+        </div>
+
+        <div class="reservation-card">
+          <div class="reservation-card-head">
+            <span>✦ Reservierungsanfrage</span>
+            <p>Bitte füllen Sie alle Pflichtfelder aus.</p>
+          </div>
+          <form class="reservation-form" id="reservation-form">
+            <div class="reservation-field reservation-field--wide">
+              <label for="reservation-name">Name <span aria-hidden="true">*</span></label>
+              <input id="reservation-name" name="name" type="text" autocomplete="name" placeholder="Ihr Vor- und Nachname" required maxlength="80">
+            </div>
+            <div class="reservation-field reservation-field--wide">
+              <label for="reservation-phone">Telefonnummer <span aria-hidden="true">*</span></label>
+              <input id="reservation-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="z. B. 0176 12345678" required maxlength="30">
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-date">Datum <span aria-hidden="true">*</span></label>
+              <input id="reservation-date" name="date" type="date" aria-describedby="reservation-date-hint" required>
+              <small class="reservation-field-hint" id="reservation-date-hint">Sonntag ist Ruhetag.</small>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-time">Uhrzeit <span aria-hidden="true">*</span></label>
+              <select id="reservation-time" name="time" required>
+                <option value="">Bitte wählen</option>
+                <option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option>
+                <option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option>
+                <option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option>
+                <option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option>
+                <option>19:30</option><option>20:00</option><option>20:30</option>
+              </select>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-guests">Personen <span aria-hidden="true">*</span></label>
+              <select id="reservation-guests" name="guests" required>
+                <option value="">Bitte wählen</option>
+                <option value="1">1 Person</option><option value="2">2 Personen</option>
+                <option value="3">3 Personen</option><option value="4">4 Personen</option>
+                <option value="5">5 Personen</option><option value="6">6 Personen</option>
+                <option value="7">7 Personen</option><option value="8">8 Personen</option>
+                <option value="9">9 Personen</option><option value="10">10 Personen</option>
+                <option value="11">11 Personen</option><option value="12">12 Personen</option>
+              </select>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-occasion">Anlass <span>optional</span></label>
+              <select id="reservation-occasion" name="occasion">
+                <option value="">Kein besonderer Anlass</option>
+                <option>Geburtstag</option><option>Jubiläum</option><option>Geschäftsessen</option>
+                <option>Familienfeier</option><option>Anderer Anlass</option>
+              </select>
+            </div>
+            <div class="reservation-field reservation-field--wide">
+              <label for="reservation-note">Wünsche &amp; Hinweise <span>optional</span></label>
+              <textarea id="reservation-note" name="note" rows="3" maxlength="400" placeholder="z. B. Kinderstuhl, Allergien oder Sitzplatzwunsch …"></textarea>
+            </div>
+            <button class="reservation-submit" type="submit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.2l1.1-4a8.4 8.4 0 1 1 15.4-4.5Z"></path><path d="M8.4 7.8c.2-.4.4-.4.7-.4h.3c.2 0 .4.1.5.4l.8 2c.1.2.1.4 0 .6l-.6.8c-.1.2-.1.3 0 .5.6 1.1 1.5 2 2.7 2.6.2.1.4.1.5-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.5-1 2.1-.7.6-1.6.8-2.5.5-1-.3-2.4-.8-4.1-2.3-1.4-1.3-2.4-2.9-2.7-3.9-.3-1-.1-2.2.5-2.8.3-.3.7-.4 1.2-.3Z"></path></svg>
+              Anfrage per WhatsApp senden
+            </button>
+            <p class="reservation-privacy">Mit dem Absenden öffnet sich WhatsApp mit Ihrer vorbereiteten Anfrage. Ihre Reservierung gilt erst nach unserer Bestätigung.</p>
+            <p class="reservation-status" id="reservation-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit section-pad" id="kontakt" aria-labelledby="visit-title">
+      <span class="section-index" aria-hidden="true">05</span>
       <svg class="visit-dragon-watermark" aria-hidden="true"><use href="#dragon-pearl-crest"/></svg>
       <div class="section-shell visit-grid">
         <div class="visit-info">
@@ -587,6 +683,7 @@
           <a href="#spezialitaeten">Signature Dishes</a>
           <a href="#ueber-uns">Gastfreundschaft</a>
           <a href="#speisekarte">Speisekarte</a>
+          <a href="#reservierung">Tisch reservieren</a>
           <a href="#kontakt">Besuch &amp; Kontakt</a>
         </nav>
       </div>
