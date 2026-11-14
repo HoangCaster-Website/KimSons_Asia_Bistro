@@ -1,0 +1,100 @@
+{
+  "contract": "See design-contract.md. User selected a warm, approachable Asian neighborhood bistro: rice-paper ivory, clay-brown accents, natural rectangular food images, moderate headings and gentle corners. Primary task remains browsing dishes and preparing a WhatsApp pickup order. Menu refinement: desktop category sidebar, native mobile selector, global search with exact dish-code match, selected-only filter and inline quantity controls synchronized with the cart.",
+  "targetViewports": [
+    "390x844",
+    "1440x900"
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Lighthouse after palette update: Accessibility 100; 59 passed, zero failed. Native mobile select options explicitly use dark text on a light surface. Existing labeled quantity controls and keyboard focus behavior remain unchanged."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Desktop 1440x900 and mobile 390x844 visually reviewed. Native category selector replaces sidebar at 760px. Toolbar is 134px on mobile. Extra 320px check found no page or menu/variant overflow. Controls reserve stable space while quantities change."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "pass",
+      "evidence": "Local HTML and food images render directly without a blocking loader. The menu remains available while lazy images load."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "Search does-not-exist shows search recovery; reset restores 78 dishes. Selected-only filter with no selected dishes shows its own empty message and a reset action."
+    },
+    "error": {
+      "status": "not-applicable",
+      "reason": "Die Seite baut die Bestellung vollständig lokal und übergibt sie per URL an WhatsApp; es gibt keinen eigenen Server-Request, dessen Fehlerzustand die Seite auswerten könnte. Ein blockiertes neues Fenster fällt auf Navigation im gleichen Tab zurück."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "Ohne konfigurierte Restaurant-WhatsApp-Nummer bleiben Auswahl, Mengen, Summe und Nachricht vollständig nutzbar. Ein sichtbarer Hinweis erklärt, dass der Gast Kim Son's in WhatsApp als Empfänger wählen muss."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "Ramen 2 portions = 27.80 EUR, decrement = 13.90 EUR. Exact code 42 yields one card with three variants; 2 chicken + 1 beef totals 33 EUR. Inline and cart quantities synchronize. Cart and selected-only updates preserve keyboard focus. WhatsApp URL verified with correct quantities, names, total and notes. Featured Udon opens 9 Udon dishes."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "Die Bestellung benötigt keine Anmeldung, Standortfreigabe, Kontakte-Berechtigung oder andere Browserberechtigung; WhatsApp wird erst nach einer direkten Nutzeraktion geöffnet."
+    }
+  },
+  "redesignContract": "design-contract.md: warm Asian neighborhood restaurant, selected by the user. Natural image frames, rice and clay palette, friendly typography and compact order controls.",
+  "renderedEvidence": [
+    {
+      "viewport": "1440x900",
+      "artifact": "hero-1440x900.png",
+      "observation": "Warm ivory hero with moderate headline, clay-colored menu CTA, natural food photograph and a subtle paper-colored offset frame."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "hero-390x844.png",
+      "observation": "Warm ivory hero with moderate headline, clay-colored menu CTA, natural food photograph and a subtle paper-colored offset frame."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "dishes-1440x900.png",
+      "observation": "Food gallery uses consistent softly rounded image frames, aligned dish titles, descriptions, prices and order actions."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "dishes-390x844.png",
+      "observation": "Food gallery uses consistent softly rounded image frames, aligned dish titles, descriptions, prices and order actions."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "about-1440x900.png",
+      "observation": "Warm sand-colored hospitality section with a simple food photograph, restrained heading and three dining options."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "mobile-390x844.png",
+      "observation": "Mobile menu with deep-green category selector, cream/gold toolbar, red add buttons and readable brown text."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "desktop-1440x900.png",
+      "observation": "Desktop menu with deep-green active category, golden-cream search toolbar, red prices/actions and clear card borders."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "mobile-order-390x844.png",
+      "observation": "Cart retains labeled quantity and pickup controls, WhatsApp handoff and the revised warm palette."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "desktop-order-1440x900.png",
+      "observation": "Cart retains labeled quantity and pickup controls, WhatsApp handoff and the revised warm palette."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "menu-quantities-1440x900.png",
+      "observation": "Separate variant quantities in green controls; selected card highlighted with red border and warm surface; unselected add buttons use solid chili red."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "menu-quantities-390x844.png",
+      "observation": "Separate variant quantities in green controls; selected card highlighted with red border and warm surface; unselected add buttons use solid chili red."
+    }
+  ],
+  "paletteRefinement": "User requested richer color: chili red primary actions and prices, leaf-green selected categories/quantity controls, golden cream toolbar and darker brown typography. Selected dishes have a red outline/accent and highlighted surface."
+}

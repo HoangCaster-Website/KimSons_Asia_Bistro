@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="favBg" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#a82035"/>
+      <stop offset="55%" stop-color="#741121"/>
+      <stop offset="100%" stop-color="#3a060f"/>
+    </radialGradient>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1c2"/>
+      <stop offset="50%" stop-color="#dfb260"/>
+      <stop offset="100%" stop-color="#a67224"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#favBg)" stroke="url(#favGold)" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="25.5" fill="none" stroke="url(#favGold)" stroke-width="0.9" stroke-opacity="0.6" stroke-dasharray="3 2"/>
+  <!-- Chopsticks -->
+  <path d="M17 21 L51 13.5" stroke="url(#favGold)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M17 24.5 L52 18.5" stroke="#f5dc9c" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Noodles / Steam -->
+  <path d="M26 31 C26 24, 29 22, 29 16" fill="none" stroke="url(#favGold)" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M32 31 C32 23, 35 21, 35 14.5" fill="none" stroke="#fff6d6" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M38 31 C38 24, 41 22, 41 17" fill="none" stroke="url(#favGold)" stroke-width="1.7" stroke-linecap="round"/>
+  <!-- Bowl -->
+  <path d="M13 31 H51 C50.5 43.5, 42.5 51, 32 51 C21.5 51, 13.5 43.5, 13 31 Z" fill="#fbf4e6" stroke="url(#favGold)" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M11.5 31 H52.5" stroke="url(#favGold)" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M24 51 H40 L38.5 54.5 H25.5 Z" fill="url(#favGold)"/>
+  <!-- KS Monogram -->
+  <text x="32" y="45.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="700" letter-spacing="0.5" fill="#741121">KS</text>
+</svg>
