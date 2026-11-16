@@ -19,7 +19,7 @@
   scrollbar-width: thin;
   scrollbar-color: #d8c4a8 transparent;
   padding: 24px 16px;
-  background: linear-gradient(180deg, #f5ebd9 0%, #efe1c8 100%);
+  background: linear-gradient(180deg, var(--menu-paper), var(--menu-paper-deep));
   border: 1.5px solid rgba(140, 24, 40, 0.28);
   outline: 1px solid rgba(200, 150, 62, 0.42);
   outline-offset: -6px;
@@ -125,7 +125,7 @@
   top: calc(var(--header-h) + 10px);
   margin: 0;
   padding: 16px 18px;
-  background: rgba(243, 229, 203, 0.94);
+  background: rgba(245, 227, 163, 0.96);
   backdrop-filter: blur(16px);
   border: 1.5px solid #c89d5c;
   outline: 1px solid rgba(140, 24, 40, 0.18);
@@ -147,7 +147,7 @@
   height: 48px;
   padding-right: 46px;
   color: var(--ink);
-  background: #fffdf8;
+  background: var(--cream);
   border: 1px solid #d2ad78;
   border-radius: 12px;
   font-size: 13.5px;
@@ -335,7 +335,7 @@
   padding: 18px 20px;
   border: 1px solid #dec39a;
   border-radius: 18px;
-  background: linear-gradient(180deg, #fffdf9 0%, #fcf7ee 100%);
+  background: linear-gradient(180deg, var(--menu-paper), var(--menu-paper-deep));
   box-shadow: 0 6px 20px rgba(64, 40, 16, 0.045);
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -354,7 +354,7 @@
 
 .menu-catalog .menu-item:hover {
   padding: 18px 20px;
-  background: #fffdf9;
+  background: var(--menu-paper);
   border-color: #c28e4e;
   box-shadow: 0 14px 32px rgba(64, 40, 16, 0.09);
   transform: translateY(-2px);
@@ -368,7 +368,7 @@
 
 .menu-catalog .menu-item.is-selected {
   border-color: var(--wine);
-  background: linear-gradient(180deg, #fff6e4 0%, #fdeed2 100%);
+  background: linear-gradient(180deg, #f6dfa0, #ebce7f);
   box-shadow: inset 3.5px 0 0 var(--wine), 0 10px 26px rgba(140, 24, 40, 0.09);
 }
 
