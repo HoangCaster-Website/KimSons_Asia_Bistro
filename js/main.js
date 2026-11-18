@@ -357,17 +357,20 @@
       article.appendChild(figure);
     }
 
-    const code = document.createElement("span");
-    code.className = "menu-code";
-    code.textContent = item.code;
-
     const content = document.createElement("div");
     content.className = "menu-item-content";
     const titleRow = document.createElement("div");
     titleRow.className = "menu-item-title-row";
     const title = document.createElement("h4");
     title.className = "menu-item-name";
-    title.textContent = item.name;
+    if (item.code) {
+      const code = document.createElement("span");
+      code.className = "menu-code menu-code--inline";
+      code.textContent = `${item.code}.`;
+      title.append(code, ` ${item.name}`);
+    } else {
+      title.textContent = item.name;
+    }
     titleRow.appendChild(title);
     if (/scharf/i.test(item.description || "")) {
       const spicyTag = document.createElement("span");
@@ -390,7 +393,7 @@
       content.appendChild(description);
     }
 
-    article.append(code, content);
+    article.appendChild(content);
     if (Number.isFinite(item.price)) {
       const action = document.createElement("div");
       action.className = "menu-item-action";
