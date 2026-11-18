@@ -4,12 +4,16 @@
   const config = window.SITE_CONFIG || {};
   const categories = window.MENU_CATEGORIES || [];
   const items = window.MENU_ITEMS || [];
+  const sushiCategories = new Set(categories.filter((category) => category.group === "sushi").map((category) => category.id));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const lowEndDevice = typeof navigator !== "undefined" && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
   const richMotion = !reducedMotion && !lowEndDevice;
   const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
 
   const applyConfig = () => {
+    document.querySelectorAll("[data-menu-total]").forEach((element) => {
+      element.textContent = items.length;
+    });
     const images = config.images || {};
     document.querySelectorAll("[data-config-image]").forEach((image) => {
       const source = images[image.dataset.configImage];
@@ -333,7 +337,25 @@
 
   const createMenuItem = (item) => {
     const article = document.createElement("article");
-    article.className = `menu-item${item.code ? "" : " menu-item--without-code"}`;
+    article.className = `menu-item${item.code ? "" : " menu-item--without-code"}${item.image ? " menu-item--with-image" : ""}`;
+    if (item.image) {
+      const figure = document.createElement("figure");
+      figure.className = "menu-item-photo";
+      const image = document.createElement("img");
+      image.src = item.image;
+      image.alt = item.imageNote || item.name;
+      image.width = 320;
+      image.height = 320;
+      image.loading = "lazy";
+      image.decoding = "async";
+      figure.appendChild(image);
+      if (item.imageNote) {
+        const caption = document.createElement("figcaption");
+        caption.textContent = item.imageNote;
+        figure.appendChild(caption);
+      }
+      article.appendChild(figure);
+    }
 
     const code = document.createElement("span");
     code.className = "menu-code";
@@ -614,7 +636,7 @@
     let activeCategory = "all";
     let query = "";
     let selectedOnly = false;
-    const allCategories = [{ id: "all", label: "Alle Gerichte" }, ...categories];
+    const allCategories = [{ id: "all", label: "Alle Gerichte" }, { id: "sushi", label: "Sushi & Sashimi" }, ...categories];
     const shortLabels = {
       "reis-nudeln": "Reis & Nudeln", fleisch: "Huhn, Rind & Ente",
       "paniertes-huhn": "Paniertes Huhn", vegetarisch: "Vegetarisch",
@@ -651,7 +673,7 @@
       button.className = `filter-button${category.id === "all" ? " is-active" : ""}`;
       button.dataset.category = category.id;
       const label = shortLabels[category.id] || category.label;
-      const total = category.id === "all" ? items.length : items.filter((item) => item.category === category.id).length;
+      const total = category.id === "all" ? items.length : items.filter((item) => category.id === "sushi" ? sushiCategories.has(item.category) : item.category === category.id).length;
       const text = document.createElement("span");
       text.textContent = label;
       const badge = document.createElement("span");
@@ -671,11 +693,12 @@
     });
 
     const matches = (item) => {
-      const inCategory = activeCategory === "all" || item.category === activeCategory;
+      const inCategory = activeCategory === "all" || (activeCategory === "sushi" ? sushiCategories.has(item.category) : item.category === activeCategory);
       const inSelection = !selectedOnly || [...orderCart.keys()].some((key) => key === (item.id || item.code) || key.startsWith(`${item.id || item.code}::`));
       const variants = item.variants?.map((variant) => variant.label).join(" ") || "";
       const categoryLabel = categories.find((category) => category.id === item.category)?.label || "";
-      const haystack = normalize(`${item.code} ${item.name} ${item.description} ${variants} ${categoryLabel}`);
+      const groupLabel = sushiCategories.has(item.category) ? "Sushi" : "";
+      const haystack = normalize(`${item.code} ${item.name} ${item.description} ${variants} ${categoryLabel} ${groupLabel}`);
       const exactCode = query && items.some((entry) => normalize(entry.code || "") === query);
       const found = !query || (exactCode ? normalize(item.code || "") === query : haystack.includes(query));
       return inCategory && inSelection && found;
@@ -749,6 +772,9 @@
       render();
     });
     categorySelect?.addEventListener("change", () => selectCategory(categorySelect.value));
+    document.querySelectorAll("[data-menu-category]").forEach((button) => {
+      button.addEventListener("click", () => selectCategory(button.dataset.menuCategory));
+    });
     searchClear?.addEventListener("click", reset);
     selectionFilter?.addEventListener("click", () => {
       selectedOnly = !selectedOnly;

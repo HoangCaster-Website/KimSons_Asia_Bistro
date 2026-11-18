@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "126 total dishes; Sushi shortcut shows 48 dishes; all 48 photos load at 3x display resolution or better",
+    "All 7 sushi categories filter correctly; C2 and C3 show sample-photo captions",
+    "Order quantities, selected-items filter, and total €36.30 are correct (2 × Dragon + Unagi + Kanpyo)",
+    "Search by Sushi and exact dish number 104 works",
+    "No page or card overflow at desktop 1440px, mobile 390px, or narrow mobile 320px"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "documentWidth": 1425,
+      "overflowingCards": 0
+    },
+    {
+      "width": 390,
+      "documentWidth": 390,
+      "overflowingCards": 0
+    },
+    {
+      "width": 320,
+      "documentWidth": 320,
+      "overflowingCards": 0
+    }
+  ],
+  "result": "passed"
+}

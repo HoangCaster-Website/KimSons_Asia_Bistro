@@ -10,7 +10,14 @@ window.MENU_CATEGORIES = [
   { id: "meeresfruechte", label: "Meeresfrüchte", note: "Reis als Beilage." },
   { id: "vietnamesisch", label: "Vietnamesische Spezialitäten", note: "" },
   { id: "udon", label: "Gebratene Udon Nudeln", note: "" },
-  { id: "ramen", label: "Ramen Menü", note: "" }
+  { id: "ramen", label: "Ramen Menü", note: "" },
+  { id: "sushi-nigiri", group: "sushi", label: "Nigiri", note: "Je 1 Stück." },
+  { id: "sushi-beilagen", group: "sushi", label: "Sushi-Beilagen", note: "" },
+  { id: "sushi-hoso-maki", group: "sushi", label: "Hoso Maki", note: "8 Stück, Shake Kawa Maki: 5 Stück." },
+  { id: "sushi-magic", group: "sushi", label: "Magic Maki", note: "Paniert, mit Haus-Dip · 8 Stück." },
+  { id: "sushi-inside-out", group: "sushi", label: "Inside-Out Rolls", note: "" },
+  { id: "sushi-sashimi", group: "sushi", label: "Sashimi", note: "" },
+  { id: "sushi-menue", group: "sushi", label: "Sushi-Menü", note: "Unsere zusammengestellten Sushi-Menüs." }
 ];
 
 window.MENU_ITEMS = [
@@ -114,5 +121,64 @@ window.MENU_ITEMS = [
   { code: "", id: "ramen-tofu", category: "ramen", name: "Ramen Tofu", description: "Ramen Nudeln, Tofu, Ei und Gemüse.", price: 12.90 },
   { code: "", id: "ramen-beef", category: "ramen", name: "Ramen Beef", description: "Ramen Nudeln, Rindfleisch, Ei & Gemüse.", price: 14.90 },
   { code: "", id: "ramen-duck", category: "ramen", name: "Ramen Duck", description: "Ramen Nudeln, Ente, Ei & Gemüse.", price: 14.90 },
-  { code: "", id: "ramen-gemischt", category: "ramen", name: "Ramen gemischt", description: "Ramen Nudeln, Garnele, Rindfleisch, Hähnchen, Ei und Gemüse.", price: 17.00 }
+  { code: "", id: "ramen-gemischt", category: "ramen", name: "Ramen gemischt", description: "Ramen Nudeln, Garnele, Rindfleisch, Hähnchen, Ei und Gemüse.", price: 17.00 },
+
+  // Sushi transcribed from the supplied printed menu (17 November 2026).
+  // Dishes 96 and 104 remain available at the printed prices, as confirmed by the owner.
+  ...[
+    { code: "90", category: "sushi-nigiri", name: "Ebi Nigiri", description: "Gekochte Garnele (1 Stück).", price: 3.20 },
+    { code: "91", category: "sushi-nigiri", name: "Maguro Nigiri", description: "Thunfisch (1 Stück).", price: 3.20 },
+    { code: "92", category: "sushi-nigiri", name: "Shake Nigiri", description: "Lachs (1 Stück).", price: 3.00 },
+    { code: "93", category: "sushi-nigiri", name: "Saba Nigiri", description: "Makrele (1 Stück).", price: 3.20 },
+    { code: "94", category: "sushi-nigiri", name: "Tamago Nigiri", description: "Eierstich (1 Stück).", price: 3.00 },
+    { code: "95", category: "sushi-nigiri", name: "Avocado Nigiri", description: "Avocado (1 Stück).", price: 3.00 },
+    { code: "96", category: "sushi-nigiri", name: "Unagi Nigiri", description: "Marinierter Aal (1 Stück).", price: 3.50 },
+    { code: "97", category: "sushi-nigiri", name: "Tofu Nigiri", description: "Hausgemachter Tofu (1 Stück).", price: 3.00 },
+    { code: "98", category: "sushi-nigiri", name: "Gurke Nigiri", description: "Gurke (1 Stück).", price: 2.20 },
+    { code: "99", category: "sushi-nigiri", name: "Shinko Nigiri", description: "Rettich (1 Stück).", price: 2.50 },
+
+    { code: "100", category: "sushi-beilagen", name: "Edamame", description: "Japanische Sojabohnen.", price: 5.00 },
+    { code: "101", category: "sushi-beilagen", name: "Goma Wakame", description: "Marinierter Seetangsalat mit Sesam.", price: 5.50 },
+
+    { code: "102", category: "sushi-hoso-maki", name: "Tekka Maki", description: "Thunfisch (8 Stück).", price: 5.30 },
+    { code: "103", category: "sushi-hoso-maki", name: "Shake Maki", description: "Lachs (8 Stück).", price: 4.80 },
+    { code: "104", category: "sushi-hoso-maki", name: "Kanpyo Maki", description: "Eingelegter japanischer Kürbis (8 Stück).", price: 3.80 },
+    { code: "105", category: "sushi-hoso-maki", name: "Kappa Maki", description: "Gurke, Sesam (8 Stück).", price: 4.00 },
+    { code: "106", category: "sushi-hoso-maki", name: "Avocado Maki", description: "Avocado (8 Stück).", price: 4.50 },
+    { code: "107", category: "sushi-hoso-maki", name: "Takuwan Maki", description: "Eingelegter Rettich (8 Stück).", price: 4.20 },
+    { code: "108", category: "sushi-hoso-maki", name: "Kani Maki", description: "Krabben (8 Stück).", price: 4.30 },
+    { code: "109", category: "sushi-hoso-maki", name: "Tobiko Maki", description: "Gekochte Garnele, Kaviar (8 Stück).", price: 5.50 },
+    { code: "110", category: "sushi-hoso-maki", name: "Shake Kawa Maki", description: "Knusprige Lachshaut, Gurke, Sesam (5 Stück).", price: 4.50 },
+    { code: "111", category: "sushi-hoso-maki", name: "Tofu Maki", description: "Hausgemachter Tofu (8 Stück).", price: 4.50 },
+
+    { code: "C1", category: "sushi-magic", name: "Magic Avocado", description: "Panierte Avocado Maki mit Haus-Dip (8 Stück).", price: 5.50 },
+    { code: "C2", category: "sushi-magic", name: "Magic Lachs", description: "Panierte Lachs Maki mit Haus-Dip (8 Stück).", price: 6.00, image: "assets/images/sushi-hd/c1.webp", imageNote: "Beispielfoto: Magic Avocado" },
+    { code: "C3", category: "sushi-magic", name: "Magic Thunfisch", description: "Panierte Thunfisch Maki mit Haus-Dip (8 Stück).", price: 6.50, image: "assets/images/sushi-hd/c1.webp", imageNote: "Beispielfoto: Magic Avocado" },
+
+    { code: "112", category: "sushi-inside-out", name: "Avocado Roll", description: "Avocado, Frischkäse und Sesam (8 Stück).", price: 6.50 },
+    { code: "113", category: "sushi-inside-out", name: "Gurke Roll", description: "Gurke, Frischkäse und Sesam (8 Stück).", price: 5.50 },
+    { code: "114", category: "sushi-inside-out", name: "Salada Roll", description: "Gurke, Paprika, Frischkäse und Sesam (8 Stück).", price: 5.50 },
+    { code: "115", category: "sushi-inside-out", name: "Negi Tekka Roll", description: "Gehackter Thunfisch, Frühlingszwiebeln, Avocado, Sesam (8 Stück).", price: 9.50 },
+    { code: "116", category: "sushi-inside-out", name: "Shake Roll", description: "Lachs, Avocado, Frischkäse, Sesam (8 Stück).", price: 7.50 },
+    { code: "117", category: "sushi-inside-out", name: "California Roll", description: "Gekochte Garnele, Avocado, Mayo, Gurke und Kaviar (8 Stück).", price: 10.00 },
+    { code: "118", category: "sushi-inside-out", name: "Alaska Roll", description: "Lachs, Gurke, Sesam (8 Stück).", price: 7.00 },
+    { code: "119", category: "sushi-inside-out", name: "Negi Shake Roll", description: "Gehackter Lachs, Avocado, Sesam (8 Stück).", price: 7.50 },
+    { code: "120", category: "sushi-inside-out", name: "Tofu Roll", description: "Hausgemachter Tofu, Avocado, Gurke, Sesam (8 Stück).", price: 5.50 },
+    { code: "121", category: "sushi-inside-out", name: "Crispy Chicken Roll", description: "Paniertes Hühnchen, Salat, Mayo, Gurke, Sesam (8 Stück).", price: 8.00 },
+    { code: "122", category: "sushi-inside-out", name: "Rainbow Roll", description: "Avocado, Gurke, Garnele, Lachs, Thunfisch, Sesam, Kaviar, Frühlingszwiebeln (8 Stück).", price: 16.00 },
+    { code: "123", category: "sushi-inside-out", name: "Dragon Roll", description: "Avocado, Gurke, Lachs, Rettich, Kaviar, scharfe Mayo (8 Stück).", price: 14.50 },
+    { code: "124", category: "sushi-inside-out", name: "Tokyo Roll", description: "Thunfisch, Avocado, Gurke, Frischkäse, Lachs, Kaviar, Sesam (8 Stück).", price: 15.50 },
+    { code: "125", category: "sushi-inside-out", name: "Valentin’s Roll", description: "Panierte Garnele, Avocado, Gurke, Kaviar (8 Stück).", price: 13.50 },
+    { code: "126", category: "sushi-inside-out", name: "Crunchy Roll", description: "Panierte Rolle mit Lachs, Thunfisch, Avocado, Gurke, Frühlingszwiebeln, Kaviar, darüber unsere Haus-Soße.", price: 15.50 },
+    { code: "127", category: "sushi-inside-out", name: "Shake Kyuri", description: "Gurkerolle mit Lachs, Avocado, Ei, Sesam.", price: 12.00 },
+
+    { code: "A1", category: "sushi-sashimi", name: "Shake Sashimi", description: "Roher Lachs.", price: 20.00 },
+    { code: "A2", category: "sushi-sashimi", name: "Maguro Sashimi", description: "Roher Thunfisch.", price: 22.00 },
+    { code: "A3", category: "sushi-sashimi", name: "Maguro Shake Sashimi", description: "Roher Thunfisch und Lachs.", price: 22.90 },
+
+    { code: "M1", category: "sushi-menue", name: "Veggie Menü", description: "Rettich Maki, Avocado Maki, Gurke Roll, Salada Roll.", price: 17.90 },
+    { code: "M2", category: "sushi-menue", name: "Narita Menü", description: "8 Stück California Roll, 4 Stück Kappa Maki, 4 Stück Lachs Maki, 3 Nigiri.", price: 20.00 },
+    { code: "M3", category: "sushi-menue", name: "Daikoku Menü", description: "Avocado Maki, Lachs Maki, Thunfisch Maki.", price: 13.90 },
+    { code: "M4", category: "sushi-menue", name: "Kim Sons Menü", description: "2 Nigiri, Lachs Maki, Avocado Maki.", price: 14.50 }
+  ].map((item) => ({ ...item, image: item.image || `assets/images/sushi-hd/${item.code.toLowerCase()}.webp` }))
 ];
