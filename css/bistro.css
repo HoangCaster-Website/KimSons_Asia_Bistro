@@ -1144,8 +1144,9 @@ button, input, select, textarea {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: rgba(255, 251, 244, 0.84);
-  border: 1px solid rgba(190, 146, 82, 0.38);
+  color: #fff;
+  background: linear-gradient(135deg, var(--wine-bright), var(--wine));
+  border: 1px solid rgba(245, 223, 168, 0.45);
   border-radius: 16px;
   box-shadow: 0 8px 22px rgba(68, 43, 18, 0.05);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1157,9 +1158,9 @@ button, input, select, textarea {
 
 .feature-list li:hover {
   padding-left: 20px;
-  color: var(--ink);
+  color: #fff;
   transform: translateY(-2px);
-  border-color: var(--wine);
+  border-color: var(--gold-pale);
   box-shadow: 0 12px 28px rgba(68, 43, 18, 0.1);
 }
 
@@ -1183,28 +1184,34 @@ button, input, select, textarea {
   color: var(--gold-pale);
 }
 
-.service-index {
-  font-size: 10px !important;
+.feature-list .service-index {
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--wine) !important;
 }
 
 .feature-list li > div {
+  min-width: 0;
   display: grid;
-  gap: 4px;
+  gap: 6px;
+  overflow-wrap: anywhere;
 }
 
 .feature-list li strong {
-  font: 700 15.5px/1.3 var(--sans);
-  color: var(--ink);
+  font: 700 1.25rem/1.3 var(--sans);
 }
 
 .feature-list li small {
-  font-size: 12.5px;
+  font-size: 1rem;
   line-height: 1.5;
-  color: var(--muted);
+}
+
+.feature-list .service-order-note {
+  margin: 2px 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 /* --------------------------------------------------------------------------
@@ -1983,6 +1990,9 @@ button, input, select, textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
   .visit-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -2237,7 +2247,6 @@ button, input, select, textarea {
   }
   .feature-list {
     order: 3;
-    grid-template-columns: 1fr;
     gap: 12px;
   }
   .visit-grid {
