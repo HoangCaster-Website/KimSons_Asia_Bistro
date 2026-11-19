@@ -55,6 +55,26 @@
     });
   };
 
+  const initMobileActionbar = () => {
+    const bar = document.querySelector(".mobile-actionbar");
+    const viewport = window.visualViewport;
+    if (!bar || !viewport) return;
+
+    const mobile = window.matchMedia("(max-width: 600px)");
+    const update = () => {
+      const visibleBottom = viewport.offsetTop + viewport.height;
+      const gap = mobile.matches && viewport.scale === 1
+        ? Math.max(0, window.innerHeight - visibleBottom)
+        : 0;
+      bar.style.setProperty("--mobile-actionbar-viewport-gap", `${Math.ceil(gap)}px`);
+    };
+
+    viewport.addEventListener("resize", update);
+    viewport.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    update();
+  };
+
   const initActiveNavigation = () => {
     const links = [...document.querySelectorAll(".desktop-nav a")];
     const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
@@ -927,6 +947,7 @@
   initMotionSystem();
   applyConfig();
   initMobileMenu();
+  initMobileActionbar();
   initOrdering();
   initMenu();
   initFeaturedOrders();

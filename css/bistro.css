@@ -2304,15 +2304,26 @@ button, input, select, textarea {
     align-items: flex-start;
     gap: 6px;
   }
+  body:not(.legal-body) {
+    --mobile-actionbar-safe-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: calc(84px + var(--mobile-actionbar-safe-bottom));
+  }
+  @supports (-webkit-touch-callout: none) {
+    body:not(.legal-body) {
+      /* Keep the buttons clear of Safari's toolbar when it reports no inset. */
+      --mobile-actionbar-safe-bottom: max(48px, env(safe-area-inset-bottom, 0px));
+    }
+  }
   .mobile-actionbar {
     right: 12px;
     left: 12px;
     bottom: 12px;
+    bottom: calc(12px + max(var(--mobile-actionbar-safe-bottom, 0px), var(--mobile-actionbar-viewport-gap, 0px)));
     border-radius: 18px;
     border-color: rgba(214, 168, 93, 0.45);
     background: rgba(25, 17, 15, 0.94);
     box-shadow: 0 12px 34px rgba(15, 8, 6, 0.38);
-    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    transition-property: none;
   }
   .mobile-route,
   .mobile-order {
