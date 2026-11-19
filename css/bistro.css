@@ -469,6 +469,16 @@ button, input, select, textarea {
   text-overflow: ellipsis;
 }
 
+.hero-concierge-item:first-child .hero-concierge-label {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+}
+
+.hero-concierge-item:first-child strong {
+  font-size: 1rem;
+  white-space: normal;
+}
+
 .hero-concierge-divider {
   width: 1px;
   height: 38px;
@@ -1283,7 +1293,7 @@ button, input, select, textarea {
   max-width: 47ch;
   margin: 20px 0 28px;
   color: var(--muted);
-  font-size: 14.5px;
+  font-size: 1rem;
   line-height: 1.8;
 }
 
@@ -1315,20 +1325,20 @@ button, input, select, textarea {
 
 .reservation-details strong {
   color: var(--ink);
-  font: 600 17px/1.3 var(--display);
+  font: 600 1.25rem/1.3 var(--display);
 }
 
 .reservation-details small {
   margin-top: 3px;
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 0.9375rem;
   line-height: 1.5;
 }
 
 .reservation-phone {
   margin: 22px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 
@@ -1354,7 +1364,8 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 6px 18px;
   padding: 18px 26px;
   background: rgba(255, 248, 235, 0.045);
   border-bottom: 1px solid rgba(200, 150, 62, 0.3);
@@ -1362,16 +1373,16 @@ button, input, select, textarea {
 
 .reservation-card-head span {
   color: var(--gold-pale);
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .reservation-card-head p {
   margin: 0;
-  color: rgba(251, 246, 237, 0.62);
-  font-size: 10.5px;
+  color: rgba(251, 246, 237, 0.8);
+  font-size: 0.875rem;
 }
 
 .reservation-form {
@@ -1398,13 +1409,13 @@ button, input, select, textarea {
   gap: 12px;
   margin-bottom: 7px;
   color: #fff9ef;
-  font-size: 11.5px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .reservation-field label > span {
   color: var(--gold-bright);
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
@@ -1419,12 +1430,15 @@ button, input, select, textarea {
   border: 1px solid rgba(236, 213, 172, 0.28);
   border-radius: 12px;
   outline: none;
-  font-size: 13px;
+  font-size: 1rem;
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.reservation-field select {
-  color-scheme: dark;
+.reservation-field select,
+.reservation-field select option {
+  color-scheme: light;
+  color: var(--ink);
+  background: #fff9ef;
 }
 
 .reservation-field textarea {
@@ -1435,13 +1449,17 @@ button, input, select, textarea {
 
 .reservation-field input::placeholder,
 .reservation-field textarea::placeholder {
-  color: rgba(251, 246, 237, 0.42);
+  color: rgba(251, 246, 237, 0.7);
+}
+
+.reservation-field input:focus,
+.reservation-field textarea:focus {
+  background: rgba(255, 250, 240, 0.11);
 }
 
 .reservation-field input:focus,
 .reservation-field select:focus,
 .reservation-field textarea:focus {
-  background: rgba(255, 250, 240, 0.11);
   border-color: var(--gold-bright);
   box-shadow: 0 0 0 3px rgba(200, 150, 62, 0.13);
 }
@@ -1449,8 +1467,8 @@ button, input, select, textarea {
 .reservation-field-hint {
   display: block;
   margin-top: 6px;
-  color: rgba(245, 223, 168, 0.65);
-  font-size: 9.5px;
+  color: var(--gold-pale);
+  font-size: 0.875rem;
 }
 
 .reservation-submit {
@@ -1460,12 +1478,14 @@ button, input, select, textarea {
   justify-content: center;
   gap: 10px;
   margin-top: 2px;
+  padding: 10px 14px;
   color: #20140d;
   background: linear-gradient(135deg, var(--gold-pale), var(--gold-bright));
   border: 0;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 800;
+  line-height: 1.35;
   cursor: pointer;
   box-shadow: 0 12px 28px rgba(200, 150, 62, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1479,6 +1499,7 @@ button, input, select, textarea {
 .reservation-submit svg {
   width: 20px;
   height: 20px;
+  flex: 0 0 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.7;
@@ -1490,16 +1511,15 @@ button, input, select, textarea {
 .reservation-status {
   margin: -3px 0 0;
   text-align: center;
-  color: rgba(251, 246, 237, 0.54);
-  font-size: 9.5px;
+  color: rgba(251, 246, 237, 0.8);
+  font-size: 0.875rem;
   line-height: 1.55;
 }
 
 .reservation-status {
-  min-height: 15px;
+  min-height: 1.4rem;
   margin-top: -8px;
   color: var(--gold-pale);
-  font-size: 11px;
   font-weight: 600;
 }
 
@@ -1604,7 +1624,7 @@ button, input, select, textarea {
 .visit-address small {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--muted);
 }
@@ -1635,7 +1655,7 @@ button, input, select, textarea {
   background: rgba(214, 168, 93, 0.15);
   border: 1px solid rgba(214, 168, 93, 0.35);
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1643,7 +1663,7 @@ button, input, select, textarea {
 
 .visit-hours h3 {
   font-family: var(--display);
-  font-size: 28px;
+  font-size: 1.875rem;
   color: var(--ink);
   margin-bottom: 14px;
 }
@@ -1654,13 +1674,19 @@ button, input, select, textarea {
 }
 
 .visit-hours dl div {
-  font-size: 13.5px;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 1.0625rem;
   padding: 12px 0;
   border-color: rgba(140, 24, 40, 0.14);
 }
 
+.visit-hours dd {
+  white-space: nowrap;
+}
+
 .visit .text-link {
-  font-size: 12.5px;
+  font-size: 0.9375rem;
   color: var(--wine);
 }
 
@@ -1882,8 +1908,12 @@ button, input, select, textarea {
     font-size: 12px;
   }
   .reservation-grid {
-    grid-template-columns: minmax(0, 0.72fr) minmax(480px, 1.28fr);
-    gap: 36px;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 34px;
+  }
+  .reservation-copy {
+    max-width: 650px;
   }
   .hero-content {
     grid-template-columns: 1fr 0.95fr;
@@ -1908,6 +1938,18 @@ button, input, select, textarea {
   .specialty-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1180px) {
+  .hero-concierge {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero-concierge-item:first-child {
+    grid-column: 1 / -1;
+  }
+  .hero-concierge-divider {
+    display: none;
   }
 }
 
@@ -1944,14 +1986,6 @@ button, input, select, textarea {
   .visit-grid {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .reservation-grid {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 34px;
-  }
-  .reservation-copy {
-    max-width: 650px;
   }
   .hero-dragon-art {
     top: calc(var(--header-h) + 70px);
@@ -2300,13 +2334,12 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .hero-concierge {
     grid-template-columns: 1fr;
     gap: 10px;
   }
   .hero-concierge-item:last-child {
-    grid-column: auto;
     padding-top: 8px;
   }
 }

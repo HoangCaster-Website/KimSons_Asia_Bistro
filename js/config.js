@@ -8,7 +8,7 @@ window.SITE_CONFIG = {
     // Leer lassen: WhatsApp öffnet die Nachricht und der Gast wählt den Empfänger.
     whatsapp: "",
     openingHours: [
-      { days: "Montag–Samstag", opens: "11:30", closes: "21:00" },
+      { days: "Montag–Samstag", opens: "11:30", closes: "21:30" },
       { days: "Sonntag", closed: true }
     ]
   },
