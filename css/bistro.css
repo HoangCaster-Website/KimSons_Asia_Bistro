@@ -83,10 +83,9 @@ button, input, select, textarea {
   filter: drop-shadow(0 4px 10px rgba(89, 13, 25, 0.18));
 }
 
-.brand strong {
-  font: 700 22px/1 var(--display);
+.brand .restaurant-name {
+  font: 700 28px/1 var(--display);
   letter-spacing: 0.05em;
-  color: var(--ink);
 }
 
 .brand small {
@@ -150,6 +149,20 @@ button, input, select, textarea {
 /* --------------------------------------------------------------------------
    Shared Typography & Eyebrows
    -------------------------------------------------------------------------- */
+.restaurant-name {
+  color: var(--restaurant-name-color, var(--wine));
+  font-size: 1.25em;
+  white-space: nowrap;
+}
+
+.site-footer,
+.visit-map-foot,
+.imperial-ribbon,
+.rotating-seal,
+.page-loader {
+  --restaurant-name-color: #ffc0c4;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -1125,6 +1138,7 @@ button, input, select, textarea {
   bottom: -22px;
   width: 98px;
   height: 98px;
+  padding-inline: 6px;
   color: var(--gold-pale);
   background: linear-gradient(135deg, var(--wine-bright), var(--wine-deep));
   border: 5px solid #efe0c6;
@@ -1171,8 +1185,8 @@ button, input, select, textarea {
   flex: 0 0 52px;
   display: grid;
   place-items: center;
-  color: #fff9ef;
-  background: radial-gradient(circle at 32% 28%, var(--wine-bright), var(--wine-deep));
+  color: var(--wine-deep);
+  background: linear-gradient(180deg, var(--paper), var(--paper-deep));
   border: 1.5px solid var(--gold);
   border-radius: 50%;
   box-shadow: 0 8px 18px rgba(89, 13, 25, 0.22);
@@ -1181,7 +1195,6 @@ button, input, select, textarea {
 .service-medallion svg {
   width: 28px;
   height: 28px;
-  color: var(--gold-pale);
 }
 
 .feature-list .service-index {
@@ -2032,8 +2045,8 @@ button, input, select, textarea {
     width: 38px;
     height: 38px;
   }
-  .brand strong {
-    font-size: 18px;
+  .brand .restaurant-name {
+    font-size: 26px;
   }
   .brand small {
     font-size: 8px;

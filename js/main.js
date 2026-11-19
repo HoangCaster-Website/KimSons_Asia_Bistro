@@ -10,6 +10,18 @@
   const richMotion = !reducedMotion && !lowEndDevice;
   const euro = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
 
+  const highlightRestaurantName = (text) => {
+    const match = /\bKim Son['’]?s\b/i.exec(text);
+    if (!match) return text;
+
+    const name = document.createElement("span");
+    name.className = "restaurant-name";
+    name.textContent = match[0];
+    const content = document.createDocumentFragment();
+    content.append(text.slice(0, match.index), name, text.slice(match.index + match[0].length));
+    return content;
+  };
+
   const applyConfig = () => {
     document.querySelectorAll("[data-menu-total]").forEach((element) => {
       element.textContent = items.length;
@@ -387,10 +399,9 @@
       const code = document.createElement("span");
       code.className = "menu-code menu-code--inline";
       code.textContent = `${item.code}.`;
-      title.append(code, ` ${item.name}`);
-    } else {
-      title.textContent = item.name;
+      title.append(code, " ");
     }
+    title.append(highlightRestaurantName(item.name));
     titleRow.appendChild(title);
     if (/scharf/i.test(item.description || "")) {
       const spicyTag = document.createElement("span");
@@ -506,7 +517,7 @@
 
         const details = document.createElement("div");
         const name = document.createElement("strong");
-        name.textContent = `${entry.code ? `Nr. ${entry.code} · ` : ""}${entry.name}`;
+        name.append(highlightRestaurantName(`${entry.code ? `Nr. ${entry.code} · ` : ""}${entry.name}`));
         const linePrice = document.createElement("span");
         linePrice.textContent = euro.format(entry.price * entry.quantity);
         details.append(name, linePrice);
@@ -557,7 +568,7 @@
       const current = orderCart.get(entry.key);
       if (current) current.quantity += 1;
       else orderCart.set(entry.key, { ...entry, quantity: 1 });
-      if (status) status.textContent = `${entry.name} wurde hinzugefügt.`;
+      if (status) status.replaceChildren(highlightRestaurantName(`${entry.name} wurde hinzugefügt.`));
       const feedback = document.getElementById("menu-feedback");
       if (feedback) feedback.textContent = `${entry.name}: ${orderCart.get(entry.key).quantity} in Ihrer Auswahl.`;
       render();
@@ -605,7 +616,9 @@
     });
 
     const whatsappNumber = String(config.restaurant?.whatsapp || "").replace(/\D/g, "");
-    if (whatsappNumber && hint) hint.textContent = "WhatsApp öffnet die fertige Nachricht direkt an Kim Son's Asia Bistro.";
+    if (whatsappNumber && hint) {
+      hint.replaceChildren(highlightRestaurantName("WhatsApp öffnet die fertige Nachricht direkt an Kim Son's Asia Bistro."));
+    }
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
